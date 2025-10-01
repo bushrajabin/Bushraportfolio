@@ -8,4 +8,5 @@ export const personalData = {
   linkedIn: "https://www.linkedin.com/in/bushra-jabin-72746424a/",
   twitter: "https://x.com/bushra_jabin",
   profileImage: "/profile-pic.jpg",
+  resume:"https://drive.google.com/file/d/1YJcZoCT5oaclwn4BpapgP7hsH5p9_8L9/view?usp=sharing"
 };
