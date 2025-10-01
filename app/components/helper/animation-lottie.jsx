@@ -1,19 +1,23 @@
-"use client"
+"use client";
 
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 
-const AnimationLottie = ({ animationPath, width }) => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationPath,
-    style: {
-      width: '95%',
-    }
-  };
+// ⚠️ Import Lottie dynamically to prevent SSR errors
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+
+const AnimationLottie = ({ animationPath, width = "95%", height = "auto", loop = true, autoplay = true }) => {
+  // Safety check – agar animationPath nahi mila toh kuch render nahi karega
+  if (!animationPath) return null;
 
   return (
-    <Lottie {...defaultOptions} />
+    <div style={{ width, height }}>
+      <Lottie
+        animationData={animationPath}
+        loop={loop}
+        autoplay={autoplay}
+        style={{ width: "100%", height: "100%" }}
+      />
+    </div>
   );
 };
 
